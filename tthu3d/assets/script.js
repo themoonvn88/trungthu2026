@@ -367,18 +367,34 @@ const wishList = [
   },
   {
     text: "Chúc cậu luôn giữ được tâm hồn trong trẻo, yêu đời như ánh trăng rằm.",
-    img: "./assets/1.jpg",
+    img: "./assets/4.jpg",
   },
   {
     text: "Trung Thu bình an, vạn sự như ý, công danh thăng tiến rực rỡ!",
-    img: "./assets/2.jpg",
+    img: "./assets/5.jpg",
   },
   {
     text: "Chúc riêng cậu một đêm trăng thật lãng mạn và ngọt ngào.",
-    img: "./assets/3.jpg",
+    img: "./assets/6.jpg",
   },
   {
     text: "Sức khỏe dồi dào, tâm an yên, miệng luôn mỉm cười rạng rỡ.",
+    img: "./assets/1.jpg",
+  },
+  {
+    text: "Chúc cậu luôn giữ được ánh mắt trong veo, nụ cười rạng rỡ và bay thật cao với những ước mơ nhỏ bé của mình.",
+    img: "./assets/4.jpg",
+  },
+  {
+    text: "Gửi tặng cậu một ngàn cái ôm ấm áp nhân ngày Tết Thiếu nhi. Cứ vô tư hồn nhiên đi, thế giới phức tạp ngoài kia kệ nó!",
+    img: "./assets/3.jpg",
+  },
+  {
+    text: "Chúc cậu ngày lễ thật vui, ngập tràn kẹo ngọt và những điều lãng mạng.",
+    img: "./assets/2.jpg",
+  },
+  {
+    text: "Chúc cậu mãi giữ được tâm hồn trẻ trung, vô tư để ngày nào cũng cười thật tươi.",
     img: "./assets/1.jpg",
   },
 ];
