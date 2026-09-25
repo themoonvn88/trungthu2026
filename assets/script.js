@@ -985,24 +985,45 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeWishCard();
 });
 
-// AUDIO
+// AUDIO (Tự động phát nhạc trên cả Máy tính và Điện thoại)
 const bgm = document.getElementById("bgm");
 const audioBtn = document.getElementById("audio-btn");
 let isPlaying = false;
 
-audioBtn.addEventListener("click", () => {
+function playAudio() {
+  if (!isPlaying) {
+    bgm.play().then(() => {
+      isPlaying = true;
+      audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+      // Gỡ bỏ các sự kiện chờ sau khi nhạc đã phát thành công
+      window.removeEventListener("pointerdown", playAudio);
+      window.removeEventListener("touchstart", playAudio);
+      window.removeEventListener("click", playAudio);
+    }).catch(() => {});
+  }
+}
+
+// 1. Thử tự phát ngay khi vừa tải trang (dành cho trình duyệt máy tính cho phép)
+playAudio();
+
+// 2. Phát ngay lập tức khi ngón tay vừa chạm vào màn hình điện thoại (kể cả chạm để xoay 3D)
+window.addEventListener("pointerdown", playAudio, { passive: true });
+window.addEventListener("touchstart", playAudio, { passive: true });
+window.addEventListener("click", playAudio, { passive: true });
+
+// 3. Nút bật/tắt nhạc thủ công ở góc trên
+audioBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // Ngăn sự kiện chạm lan ra màn hình làm bật lại nhạc
   if (isPlaying) {
     bgm.pause();
     audioBtn.innerHTML = '<i class="fas fa-music" style="opacity:0.5;"></i>';
+    isPlaying = false;
   } else {
-    bgm
-      .play()
-      .then(() => {
-        audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-      })
-      .catch(() => {});
+    bgm.play().then(() => {
+      audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+      isPlaying = true;
+    }).catch(() => {});
   }
-  isPlaying = !isPlaying;
 });
 
 // ANIMATION
